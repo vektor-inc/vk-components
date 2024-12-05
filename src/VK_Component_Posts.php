@@ -581,8 +581,8 @@ class VK_Component_Posts {
 				$term_args = array(
 					'class' => 'vk_post_imgOuter_singleTermLabel',
 				);
-				if ( method_exists( 'Vk_term_color', 'get_single_term_with_color' ) ) {
-					$html .= Vk_term_color::get_single_term_with_color( $post, $term_args );
+				if ( method_exists( 'VkTermColor', 'get_single_term_with_color' ) ) {
+					$html .= VkTermColor::get_single_term_with_color( $post, $term_args );
 				}
 				$html .= '</div>';
 			}
@@ -920,8 +920,8 @@ class VK_Component_Posts {
 				'class' => 'postListText_singleTermLabel_inner',
 				'link'  => true,
 			);
-			if ( method_exists( 'Vk_term_color', 'get_single_term_with_color' ) ) {
-				$html .= Vk_term_color::get_single_term_with_color( $post, $term_args );
+			if ( method_exists( 'VkTermColor', 'get_single_term_with_color' ) ) {
+				$html .= VkTermColor::get_single_term_with_color( $post, $term_args );
 			}
 			$html .= '</span>';
 		}
