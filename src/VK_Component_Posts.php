@@ -7,7 +7,7 @@
  */
 namespace VektorInc\VK_Component;
 
-use VektorInc\VK_Term_Color\Vk_term_color;
+use VektorInc\VK_Term_Color\VkTermColor;
 
 /**
  * VK Component for Posts
