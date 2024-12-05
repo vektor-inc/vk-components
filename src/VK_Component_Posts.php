@@ -5,10 +5,9 @@
  * @package VektorInc\VK_Component
  * @version 1.6.4
  */
-
 namespace VektorInc\VK_Component;
 
-
+use VektorInc\VK_Term_Color\Vk_term_color;
 
 /**
  * VK Component for Posts
