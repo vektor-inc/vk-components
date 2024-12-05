@@ -581,7 +581,7 @@ class VK_Component_Posts {
 				$term_args = array(
 					'class' => 'vk_post_imgOuter_singleTermLabel',
 				);
-				if ( method_exists( 'VkTermColor', 'get_single_term_with_color' ) ) {
+				if ( method_exists( 'VektorInc\VK_Term_Color\VkTermColor', 'get_single_term_with_color' ) ) {
 					$html .= VkTermColor::get_single_term_with_color( $post, $term_args );
 				}
 				$html .= '</div>';
