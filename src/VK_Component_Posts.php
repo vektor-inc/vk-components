@@ -16,8 +16,8 @@ class VK_Component_Posts {
 
 	const VK_COMPONENTS_VERSION = '1.6.4';
 
-	public static function enqueue_style() {
-		wp_enqueue_style( 'vk-components-posts', plugin_dir_url( __FILE__ )  . '/assets/css/vk-components-posts.css', array(), VK_COMPONENTS_VERSION );
+	public static function register_style() {
+		wp_register_style( 'vk-components-posts', plugin_dir_url( __FILE__ )  . '/assets/css/vk-components-posts.css', array(), VK_COMPONENTS_VERSION );
 	}
 
 
