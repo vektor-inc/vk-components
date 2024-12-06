@@ -14,7 +14,9 @@
     "scripts": {
         "wp-env": "wp-env",
         "update": "ncu -u && rm -rf node_modules package-lock.json && npm install",
-        "build": "gulp build",
+        "build": "gulp build && npm run translate",
+        "build:pot": "wp i18n make-pot . languages/vk-components.pot",
+        "translate": "npm run build:pot && cd languages && wp i18n make-php . && cd ../",
         "phpunit": "wp-env run tests-cli --env-cwd='wp-content/plugins/vk-component' vendor/bin/phpunit -c .phpunit.xml"
     }
 }

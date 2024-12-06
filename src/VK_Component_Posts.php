@@ -16,8 +16,41 @@ class VK_Component_Posts {
 
 	const VK_COMPONENTS_VERSION = '1.6.4';
 
-	public static function register_style() {
-		wp_register_style( 'vk-components-style', plugin_dir_url( __FILE__ )  . '/assets/css/vk-components.css', array(), self::VK_COMPONENTS_VERSION );
+	public static function init() {
+		/**
+		 * テキストドメイン
+		 */
+		if ( did_action( 'init' ) ) {
+			self::load_text_domain();
+		} else {
+			add_action( 'init', array( __CLASS__, 'load_text_domain' ) );
+		}
+	}
+
+	public static function load_text_domain() {
+		// We're not using load_plugin_textdomain() or its siblings because figuring out where
+		// the library is located (plugin, mu-plugin, theme, custom wp-content paths) is messy.
+		$domain = 'vk-components';
+		$locale = apply_filters(
+			'plugin_locale',
+			( is_admin() && function_exists( 'get_user_locale' ) ) ? get_user_locale() : get_locale(),
+			$domain
+		);
+
+		$mo_file = $domain . '-' . $locale . '.mo';
+		$path    = realpath( __DIR__ . '/languages' );
+		if ( $path && file_exists( $path ) ) {
+			load_textdomain( $domain, $path . '/' . $mo_file );
+		}
+	}
+
+	/**
+	 * Register style
+	 *
+	 * @param string $style_id style id.
+	 */
+	public static function register_style( $style_id = 'vk-components-style' ) {
+		wp_register_style( $style_id, plugin_dir_url( __FILE__ )  . '/assets/css/vk-components.css', array(), self::VK_COMPONENTS_VERSION );
 	}
 
 
@@ -55,9 +88,9 @@ class VK_Component_Posts {
 			'image_default_url'          => false,
 			'overlay'                    => false,
 			'title_tag'                  => 'h5',
-			'btn_text'                   => __( 'Read more', 'vk_components' ),
+			'btn_text'                   => __( 'Read more', 'vk-components' ),
 			'btn_align'                  => 'text-right',
-			'new_text'                   => __( 'New!!', 'vk_components' ),
+			'new_text'                   => __( 'New!!', 'vk-components' ),
 			'new_date'                   => 7,
 			'textlink'                   => true,
 			'class_outer'                => '',
@@ -266,7 +299,7 @@ class VK_Component_Posts {
 	public static function get_archive_link_btn( $wp_query, $args = array() ) {
 
 		$default = array(
-			'btn_text'        => __( 'More', 'vk_components' ),
+			'btn_text'        => __( 'More', 'vk-components' ),
 			'btn_position'    => 'right',
 			'btn_style'       => 'normal', // text / normal
 			'btn_icon_before' => '<i class="far fa-arrow-alt-circle-right"></i>',
@@ -302,10 +335,10 @@ class VK_Component_Posts {
 				'mid_size'           => 1, // get_loop では loop_options のデフォルト値で上書きされる.
 				'prev_text'          => '&laquo;',
 				'next_text'          => '&raquo;',
-				'screen_reader_text' => __( 'Posts navigation', 'vk_components' ),
-				'aria_label'         => __( 'Posts', 'vk_components' ),
+				'screen_reader_text' => __( 'Posts navigation', 'vk-components' ),
+				'aria_label'         => __( 'Posts', 'vk-components' ),
 				'class'              => 'pagination',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'vk_components' ) . ' </span>',
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'vk-components' ) . ' </span>',
 				'type'               => 'list',
 			)
 		);
@@ -773,27 +806,27 @@ class VK_Component_Posts {
 	public static function get_patterns() {
 		$patterns = array(
 			'card'            => array(
-				'label'             => __( 'Card', 'vk_components' ),
+				'label'             => __( 'Card', 'vk-components' ),
 				'class_posts_outer' => '',
 			),
 			'card-noborder'   => array(
-				'label'             => __( 'Card Noborder', 'vk_components' ),
+				'label'             => __( 'Card Noborder', 'vk-components' ),
 				'class_posts_outer' => '',
 			),
 			'card-intext'     => array(
-				'label'             => __( 'Card Intext', 'vk_components' ),
+				'label'             => __( 'Card Intext', 'vk-components' ),
 				'class_posts_outer' => '',
 			),
 			'card-horizontal' => array(
-				'label'             => __( 'Card Horizontal', 'vk_components' ),
+				'label'             => __( 'Card Horizontal', 'vk-components' ),
 				'class_posts_outer' => '',
 			),
 			'media'           => array(
-				'label'             => __( 'Media', 'vk_components' ),
+				'label'             => __( 'Media', 'vk-components' ),
 				'class_posts_outer' => 'media-outer',
 			),
 			'postListText'    => array(
-				'label'             => _x( 'Text 1 Column', 'post list type', 'vk_components' ),
+				'label'             => _x( 'Text 1 Column', 'post list type', 'vk-components' ),
 				'class_posts_outer' => 'postListText-outer',
 			),
 		);
