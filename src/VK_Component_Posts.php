@@ -37,7 +37,7 @@ class VK_Component_Posts {
 			$domain
 		);
 
-		$mo_file = $domain . '-' . $locale . '.mo';
+		$mo_file = $locale . '.mo';
 		$path    = realpath( __DIR__ . '/languages' );
 		if ( $path && file_exists( $path ) ) {
 			load_textdomain( $domain, $path . '/' . $mo_file );
