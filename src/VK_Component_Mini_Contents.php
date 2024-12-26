@@ -9,6 +9,41 @@ namespace VektorInc\VK_Component;
 
 class VK_Component_Mini_Contents {
 
+	public static function init() {
+
+		// 古い（Composer版じゃない）VK_Component_Mini_Contents がある場合は処理しない.
+		if ( class_exists( 'VK_Component_Mini_Contents' ) ) {
+			return;
+		}
+
+		// 古い（Composer版じゃない）VK_Component_Mini_Contents が使用されている場所でも動作するようにエイリアスを作成.
+		class_alias( '\VektorInc\VK_Component\VK_Component_Mini_Contents', '\VK_Component_Mini_Contents' );
+
+		// テキストドメインの読み込み.
+		if ( did_action( 'init' ) ) {
+			self::load_text_domain();
+		} else {
+			add_action( 'init', array( __CLASS__, 'load_text_domain' ) );
+		}
+	}
+
+	public static function load_text_domain() {
+		// We're not using load_plugin_textdomain() or its siblings because figuring out where
+		// the library is located (plugin, mu-plugin, theme, custom wp-content paths) is messy.
+		$domain = 'vk-components';
+		$locale = apply_filters(
+			'plugin_locale',
+			( is_admin() && function_exists( 'get_user_locale' ) ) ? get_user_locale() : get_locale(),
+			$domain
+		);
+
+		$mo_file = $locale . '.mo';
+		$path    = realpath( __DIR__ . '/languages' );
+		if ( $path && file_exists( $path ) ) {
+			load_textdomain( $domain, $path . '/' . $mo_file );
+		}
+	}
+
 	public static function get_options( $options ) {
 		$default = array(
 			'outer_id'       => '',

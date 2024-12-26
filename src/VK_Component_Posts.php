@@ -17,9 +17,16 @@ class VK_Component_Posts {
 	const VK_COMPONENTS_VERSION = '1.6.4';
 
 	public static function init() {
-		/**
-		 * テキストドメイン
-		 */
+
+		// 古い（Composer版じゃない）VK_Component_Posts がある場合は処理しない.
+		if ( class_exists( 'VK_Component_Posts' ) ) {
+			return;
+		}
+
+		// 古い（Composer版じゃない）VK_Component_Posts が使用されている場所でも動作するようにエイリアスを作成.
+		class_alias( '\VektorInc\VK_Component\VK_Component_Posts', '\VK_Component_Posts' );
+
+		// テキストドメインの読み込み.
 		if ( did_action( 'init' ) ) {
 			self::load_text_domain();
 		} else {
