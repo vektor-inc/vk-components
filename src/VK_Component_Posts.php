@@ -57,7 +57,7 @@ class VK_Component_Posts {
 	 * @param string $style_id style id.
 	 */
 	public static function register_style( $style_id = 'vk-components-style' ) {
-		wp_register_style( $style_id, plugin_dir_url( __FILE__ )  . '/assets/css/vk-components.css', array(), self::VK_COMPONENTS_VERSION );
+		wp_register_style( $style_id, plugin_dir_url( __FILE__ ) . '/assets/css/vk-components.css', array(), self::VK_COMPONENTS_VERSION );
 	}
 
 
@@ -1031,4 +1031,3 @@ class VK_Component_Posts {
 		return $col_class;
 	}
 }
-
