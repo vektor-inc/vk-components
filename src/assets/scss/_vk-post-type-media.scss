@@ -1,4 +1,4 @@
-@use "variables";
+@use "variables" as vk_compo_variables;
 
 .vk_post {
 	/*
@@ -10,7 +10,7 @@
 		display: flex;
 		padding: 1em 0;
 		margin: 0 15px;
-		border-bottom: variables.$border_primary;
+		border-bottom: vk_compo_variables.$border_primary;
 	}
 }
 
@@ -19,7 +19,7 @@
 /*-------------------------------------------*/
 .media {
 	&-img {
-		border: variables.$border_image;
+		border: vk_compo_variables.$border_image;
 		padding: 1px;
 		margin-right: 1rem;
 	}
@@ -41,64 +41,64 @@
 	どこかのタイミングで要検討
 	*/
 	&:first-child {
-		border-top: variables.$border_primary;
+		border-top: vk_compo_variables.$border_primary;
 	}
 }
 
 .media.vk_post-col {
-	@media  (max-width: variables.$xs-max) {
+	@media  (max-width: vk_compo_variables.$xs-max) {
 		&-xs-6:nth-child(2) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$sm-min) and (max-width: variables.$sm-max) {
+	@media (min-width: vk_compo_variables.$sm-min) and (max-width: vk_compo_variables.$sm-max) {
 		&-sm-6:nth-child(2),
 		&-sm-4:nth-child(2),
 		&-sm-4:nth-child(3),
 		&-sm-3:nth-child(2),
 		&-sm-3:nth-child(3),
 		&-sm-3:nth-child(4) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$md-min) and (max-width: variables.$md-max) {
+	@media (min-width: vk_compo_variables.$md-min) and (max-width: vk_compo_variables.$md-max) {
 		&-md-6:nth-child(2),
 		&-md-4:nth-child(2),
 		&-md-4:nth-child(3),
 		&-md-3:nth-child(2),
 		&-md-3:nth-child(3),
 		&-md-3:nth-child(4) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$lg-min) and (max-width: variables.$lg-max) {
+	@media (min-width: vk_compo_variables.$lg-min) and (max-width: vk_compo_variables.$lg-max) {
 		&-lg-6:nth-child(2),
 		&-lg-4:nth-child(2),
 		&-lg-4:nth-child(3),
 		&-lg-3:nth-child(2),
 		&-lg-3:nth-child(3),
 		&-lg-3:nth-child(4) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (min-width: vk_compo_variables.$xl-min) {
 		&-xl-6:nth-child(2),
 		&-xl-4:nth-child(2),
 		&-xl-4:nth-child(3),
 		&-xl-3:nth-child(2),
 		&-xl-3:nth-child(3),
 		&-xl-3:nth-child(4) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (min-width: vk_compo_variables.$xxl-min) {
 		&-xxl-6:nth-child(2),
 		&-xxl-4:nth-child(2),
 		&-xxl-4:nth-child(3),
 		&-xxl-3:nth-child(2),
 		&-xxl-3:nth-child(3),
 		&-xxl-3:nth-child(4) {
-			border-top: variables.$border_primary;
+			border-top: vk_compo_variables.$border_primary;
 		}
 	}
 }

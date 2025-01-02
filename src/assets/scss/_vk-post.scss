@@ -4,7 +4,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 にあります。修正の際は上記リポジトリのデータを修正してください。
 */
 
-@use "variables";
+@use "variables" as vk_compo_variables;
 
 /*-------------------------------------------*/
 /* vk_post Layout
@@ -46,7 +46,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	&-xs-12 {
 		width: calc(100% - 30px);
 	}
-	@media (min-width: variables.$sm-min) {
+	@media (min-width: vk_compo_variables.$sm-min) {
 		&-sm-2 {
 			width: calc(16.66% - 30px);
 		}
@@ -63,7 +63,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 			width: calc(100% - 30px);
 		}
 	}
-	@media (min-width: variables.$md-min) {
+	@media (min-width: vk_compo_variables.$md-min) {
 		&-md-2 {
 			width: calc(16.66% - 30px);
 		}
@@ -80,7 +80,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 			width: calc(100% - 30px);
 		}
 	}
-	@media (min-width: variables.$lg-min) {
+	@media (min-width: vk_compo_variables.$lg-min) {
 		&-lg-2 {
 			width: calc(16.66% - 30px);
 		}
@@ -97,7 +97,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 			width: calc(100% - 30px);
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (min-width: vk_compo_variables.$xl-min) {
 		&-xl-2 {
 			width: calc(16.66% - 30px);
 		}
@@ -114,7 +114,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 			width: calc(100% - 30px);
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (min-width: vk_compo_variables.$xxl-min) {
 		&-xxl-2 {
 			width: calc(16.66% - 30px);
 		}
@@ -193,18 +193,18 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		color: red;
 	}
 	& &_excerpt {
-		margin: variables.$margin_post_item_element 0;
+		margin: vk_compo_variables.$margin_post_item_element 0;
 		font-size: 12px;
 		line-height: 1.6;
 		opacity: 0.8;
 	}
 	& &_date {
 		font-size: var(--vk-font-size-xs);
-		margin-top: variables.$margin_post_item_element_narrow;
+		margin-top: vk_compo_variables.$margin_post_item_element_narrow;
 		color: var(--vk-color-text-light);
 	}
 	&_author {
-		margin: variables.$margin_post_item_element 0;
+		margin: vk_compo_variables.$margin_post_item_element 0;
 		&_image,
 		&_name {
 			display: inline-block;
@@ -226,7 +226,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		}
 	}
 	&_taxonomies {
-		margin-top:variables.$margin_post_item_element;
+		margin-top:vk_compo_variables.$margin_post_item_element;
 	}
 	&_taxonomy {
 		display: flex;
@@ -239,13 +239,13 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		&_title,
 		&_terms {
 			border:none;
-			margin:0 0 variables.$margin_post_item_element_narrow;
+			margin:0 0 vk_compo_variables.$margin_post_item_element_narrow;
 		}
 		&_title{
 			padding-left:0;
 			&_inner {
 				display: block;
-				border:variables.$border_primary;
+				border:vk_compo_variables.$border_primary;
 				min-width:8em;
 				text-align: center;
 				background-color: rgba(0,0,0,0.05);
@@ -280,7 +280,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		position: relative;
 		background-size: cover;
 		background-position: center 50%;
-		border-bottom: variables.$border_image;
+		border-bottom: vk_compo_variables.$border_image;
 		& > a::after {
 			content: "";
 			position: absolute;
@@ -322,7 +322,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		.vk_post_imgOuter {
 			height: 100%;
 			border-bottom: none;
-			border-right:variables.$border_image;
+			border-right:vk_compo_variables.$border_image;
 			&:before {
 				padding-top: 0;
 			}
@@ -330,7 +330,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		&.card-horizontal-reverse {
 			.vk_post_imgOuter {
 				border-right:none;
-				border-left:variables.$border_image;
+				border-left:vk_compo_variables.$border_image;
 			}
 			.card-horizontal-inner-row {
 				flex-direction: row-reverse;

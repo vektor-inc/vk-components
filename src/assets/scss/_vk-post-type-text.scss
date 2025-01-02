@@ -3,7 +3,7 @@
 https://github.com/vektor-inc/vektor-wp-libraries
 にあります。修正の際は上記リポジトリのデータを修正してください。
 */
-@use "variables";
+@use "variables" as vk_compo_variables;
 .vk_posts-layout-postListText {
 	margin-bottom: 0.8rem;
 }
@@ -48,7 +48,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		margin: 0;
 		padding-top: 0.2rem;
 		clear: both;
-		@media (min-width: variables.$lg-min) {
+		@media (min-width: vk_compo_variables.$lg-min) {
 			padding-top: 0;
 			clear: none;
 		}
@@ -66,7 +66,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 }
 
 .mainSection .postListText.vk_post-col-sm-12 {
-	@media (min-width: variables.$sm-min) {
+	@media (min-width: vk_compo_variables.$sm-min) {
 		.vk_post_title {
 			font-size: 16px;
 			font-weight: normal;
@@ -77,7 +77,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 		// &.media {
 		// 	padding: 1.5rem 0;
 		// 	&:first-child {
-		// 		border-top: variables.$border_primary;
+		// 		border-top: vk_compo_variables.$border_primary;
 		// 	}
 		// 	.media-img {
 		// 		margin-right: 1.4rem;
@@ -86,7 +86,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	}
 	// }
 	// .mainSection .postListText.vk_post-col-md-12 {
-	// 	@media (min-width: variables.$md-min) {
+	// 	@media (min-width: vk_compo_variables.$md-min) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -96,7 +96,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-lg-12 {
-	// 	@media (min-width: variables.$lg-min) {
+	// 	@media (min-width: vk_compo_variables.$lg-min) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -112,7 +112,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-xl-12 {
-	// 	@media (min-width: variables.$xl-min) {
+	// 	@media (min-width: vk_compo_variables.$xl-min) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}
@@ -121,7 +121,7 @@ https://github.com/vektor-inc/vektor-wp-libraries
 	// 		}
     // 	}
     	// .mainSection .postListText.vk_post-col-xxl-12 {
-	// 	@media (min-width: variables.$xxl-min) {
+	// 	@media (min-width: vk_compo_variables.$xxl-min) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}

@@ -1,4 +1,4 @@
-@use "variables";
+@use "variables" as vk_compo_variables;
 /*-------------------------------------------*/
 /* .card
 /*-------------------------------------------*/
@@ -147,64 +147,64 @@
 /* １カラム カード水平 の時の下部の余白を小さく変更
 /*-------------------------------------------*/
 .card.vk_post-col {
-	@media (max-width: variables.$xs-max) {
+	@media (max-width: vk_compo_variables.$xs-max) {
 		&-xs-12 {
 			margin-bottom: 20px;
 		}
 	}
-	@media (min-width: variables.$sm-min) and (max-width: variables.$sm-max) {
+	@media (min-width: vk_compo_variables.$sm-min) and (max-width: vk_compo_variables.$sm-max) {
 		&-sm-12 {
 			margin-bottom: 20px;
 		}
 	}
-	@media (min-width: variables.$md-min) and (max-width: variables.$md-max) {
+	@media (min-width: vk_compo_variables.$md-min) and (max-width: vk_compo_variables.$md-max) {
 		&-md-12 {
 			margin-bottom: 20px;
 		}
 	}
-	@media (min-width: variables.$lg-min) and (max-width: variables.$lg-max) {
+	@media (min-width: vk_compo_variables.$lg-min) and (max-width: vk_compo_variables.$lg-max) {
 		&-lg-12 {
 			margin-bottom: 20px;
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (min-width: vk_compo_variables.$xl-min) {
 		&-xl-12 {
 			margin-bottom: 20px;
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (min-width: vk_compo_variables.$xxl-min) {
 		&-xxl-12 {
 			margin-bottom: 20px;
 		}
 	}
 }
 .card-horizontal.vk_post-col {
-	@media (max-width: variables.$xs-max) {
+	@media (max-width: vk_compo_variables.$xs-max) {
 		&-xs-12 {
 			margin-bottom: 15px;
 		}
 	}
-	@media (min-width: variables.$sm-min) and (max-width: variables.$sm-max) {
+	@media (min-width: vk_compo_variables.$sm-min) and (max-width: vk_compo_variables.$sm-max) {
 		&-sm-12 {
 			margin-bottom: 15px;
 		}
 	}
-	@media (min-width: variables.$md-min) and (max-width: variables.$md-max) {
+	@media (min-width: vk_compo_variables.$md-min) and (max-width: vk_compo_variables.$md-max) {
 		&-md-12 {
 			margin-bottom: 15px;
 		}
 	}
-	@media (min-width: variables.$lg-min) and (max-width: variables.$lg-max) {
+	@media (min-width: vk_compo_variables.$lg-min) and (max-width: vk_compo_variables.$lg-max) {
 		&-lg-12 {
 			margin-bottom: 15px;
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (min-width: vk_compo_variables.$xl-min) {
 		&-xl-12 {
 			margin-bottom: 15px;
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (min-width: vk_compo_variables.$xxl-min) {
 		&-xxl-12 {
 			margin-bottom: 15px;
 		}
@@ -213,32 +213,32 @@
 
 .card-noborder.vk_post-col,
 .card-imageRound.vk_post-col {
-	@media (max-width: variables.$xs-max) {
+	@media (max-width: vk_compo_variables.$xs-max) {
 		&-xs-12 {
 			margin-bottom: 40px;
 		}
 	}
-	@media (min-width: variables.$sm-min) and (max-width: variables.$sm-max) {
+	@media (min-width: vk_compo_variables.$sm-min) and (max-width: vk_compo_variables.$sm-max) {
 		&-sm-12 {
 			margin-bottom: 40px;
 		}
 	}
-	@media (min-width: variables.$md-min) and (max-width: variables.$md-max) {
+	@media (min-width: vk_compo_variables.$md-min) and (max-width: vk_compo_variables.$md-max) {
 		&-md-12 {
 			margin-bottom: 40px;
 		}
 	}
-	@media (min-width: variables.$lg-min) and (max-width: variables.$lg-max) {
+	@media (min-width: vk_compo_variables.$lg-min) and (max-width: vk_compo_variables.$lg-max) {
 		&-lg-12 {
 			margin-bottom: 40px;
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (min-width: vk_compo_variables.$xl-min) {
 		&-xl-12 {
 			margin-bottom: 40px;
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (min-width: vk_compo_variables.$xxl-min) {
 		&-xxl-12 {
 			margin-bottom: 40px;
 		}
