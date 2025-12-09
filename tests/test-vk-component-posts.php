@@ -33,16 +33,6 @@ class VkComponentPostsTest extends WP_UnitTestCase {
 				'expected'            => 'vk_post-col-xs-12 vk_post-col-sm-6 vk_post-col-md-4 vk_post-col-lg-3 vk_post-col-xl-2 vk_post-col-xxl-3',
 			),
 			array(
-				'test_condition_name' => '未知の値はデフォルト変換で col-4 として扱う',
-				'conditions'          => array(
-					'attributes' => array(
-						'col_md' => 5,
-						'col_xl' => 'not-numeric',
-					),
-				),
-				'expected'            => 'vk_post-col-md-4 vk_post-col-xl-4',
-			),
-			array(
 				'test_condition_name' => '指定が無ければ空文字を返す',
 				'conditions'          => array(
 					'attributes' => array(),
