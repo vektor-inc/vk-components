@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23874de08392553218a50c39475d04d1",
+    "content-hash": "68605b2bac77fa6d31efc5fef66218e2",
     "packages": [
         {
             "name": "vektor-inc/vk-term-color",

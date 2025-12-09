@@ -15,10 +15,12 @@
     ],
     "require-dev": {
         "wp-phpunit/wp-phpunit": "^6.7",
-        "yoast/phpunit-polyfills": "^3.0",
-        "phpunit/phpunit": "^9.6"
+        "yoast/phpunit-polyfills": "^3.0"
     },
     "require": {
         "vektor-inc/vk-term-color": "^0.7.1"
+    },
+    "conflict": {
+        "phpunit/phpunit": ">=10"
     }
 }
