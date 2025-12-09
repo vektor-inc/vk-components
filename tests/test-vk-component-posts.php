@@ -33,6 +33,19 @@ class VkComponentPostsTest extends WP_UnitTestCase {
 				'expected'            => 'vk_post-col-xs-12 vk_post-col-sm-6 vk_post-col-md-4 vk_post-col-lg-3 vk_post-col-xl-2 vk_post-col-xxl-3',
 			),
 			array(
+				'test_condition_name' => 'XXLのサイズが未指定の場合はXXLのクラスを返さない',
+				'conditions'          => array(
+					'attributes' => array(
+						'col_xs' => 1,
+						'col_sm' => 2,
+						'col_md' => 3,
+						'col_lg' => 4,
+						'col_xl' => 6,
+					),
+				),
+				'expected'            => 'vk_post-col-xs-12 vk_post-col-sm-6 vk_post-col-md-4 vk_post-col-lg-3 vk_post-col-xl-2',
+			),
+			array(
 				'test_condition_name' => '指定が無ければ空文字を返す',
 				'conditions'          => array(
 					'attributes' => array(),

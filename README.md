@@ -1,5 +1,6 @@
 ## VK Component
 
+[ その他 ] PHPUnit xxl の値が null の時に返すクラスのテスト追加
 [ その他 ] PHPUnit テスト追加
 
 1.6.5
