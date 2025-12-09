@@ -19,5 +19,8 @@
     },
     "require": {
         "vektor-inc/vk-term-color": "^0.7.1"
+    },
+    "conflict": {
+        "phpunit/phpunit": ">=10"
     }
 }
