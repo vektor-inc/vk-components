@@ -192,6 +192,12 @@
 		line-height: 1.6;
 		opacity: 0.8;
 	}
+	& &dates {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 	& &_date {
 		font-size: var(--vk-font-size-xs);
 		margin-top: variables.$margin_post_item_element_narrow;
