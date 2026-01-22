@@ -89,6 +89,7 @@ class VK_Component_Posts {
 			'display_excerpt'            => false,
 			'display_author'             => false,
 			'display_date'               => true,
+			'display_modified'           => true,
 			'display_new'                => true,
 			'display_taxonomies'         => false,
 			'display_btn'                => false,
@@ -710,6 +711,12 @@ class VK_Component_Posts {
 			$html .= '</div>';
 		}
 
+		if ( $options['display_modified'] ) {
+			$html .= '<div class="vk_post_date ' . $layout_type . '-date modified">';
+			$html .= esc_html( get_the_modified_date( '', $post->ID ) );
+			$html .= '</div>';
+		}
+
 		if ( $options['display_excerpt'] ) {
 			$html .= '<p class="vk_post_excerpt ' . $layout_type . '-text">';
 			$html .= wp_kses_post( nl2br( get_the_excerpt( $post->ID ) ) );
@@ -948,7 +955,11 @@ class VK_Component_Posts {
 		$html  = '';
 		$html .= self::get_view_first_div( $post, $options );
 
-		if ( $options['display_date'] ) {
+		if ( $options['display_modified'] && get_the_modified_date( '', $post->ID ) !== get_the_date( '', $post->ID ) ) {
+			$html .= '<span class="postListText_date modified">';
+			$html .= esc_html( get_the_modified_date( '', $post->ID ) );
+			$html .= '</span>';
+		} elseif ( $options['display_date'] ) {
 			$html .= '<span class="postListText_date published">';
 			$html .= esc_html( get_the_date( '', $post->ID ) );
 			$html .= '</span>';
