@@ -964,12 +964,12 @@ class VK_Component_Posts {
 
 		if ( $options['display_modified'] && get_the_modified_date( '', $post->ID ) !== get_the_date( '', $post->ID ) ) {
 			$html .= '<span class="postListText_date modified">';
-			$html .= '<i class="fa-solid fa-calendar-days"></i>';
+			$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
 			$html .= esc_html( get_the_modified_date( '', $post->ID ) );
 			$html .= '</span>';
 		} elseif ( $options['display_date'] ) {
 			$html .= '<span class="postListText_date published">';
-			$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
+			$html .= '<i class="fa-solid fa-calendar-days"></i>';
 			$html .= esc_html( get_the_date( '', $post->ID ) );
 			$html .= '</span>';
 		}
