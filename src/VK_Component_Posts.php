@@ -711,13 +711,13 @@ class VK_Component_Posts {
 			$html .= '<div class="vk_post_dates">';
 			if ( $options['display_date'] ) {
 				$html .= '<div class="vk_post_date ' . $layout_type . '-date published">';
-				$html .= '<i class="fa-solid fa-calendar-days"></i>';
+				$html .= '<i class="fa-solid fa-calendar-days fa-fw"></i>';
 				$html .= esc_html( get_the_date( '', $post->ID ) );
 				$html .= '</div>';
 			}
 			if ( $options['display_modified'] ) {
 				$html .= '<div class="vk_post_date ' . $layout_type . '-date modified">';
-				$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
+				$html .= '<i class="fa-solid fa-clock-rotate-left fa-fw"></i>';
 				$html .= esc_html( get_the_modified_date( '', $post->ID ) );
 				$html .= '</div>';
 			}
