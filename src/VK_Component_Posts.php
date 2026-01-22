@@ -705,26 +705,27 @@ class VK_Component_Posts {
 
 		$html .= '</' . $options['title_tag'] . '>';
 
-		if ( $options['display_date'] ) {
-			$html .= '<div class="vk_post_date ' . $layout_type . '-date published">';
-			$html .= esc_html( get_the_date( '', $post->ID ) );
-			$html .= '</div>';
-		}
+
 	
 		if ( $options['display_date'] || $options['display_modified'] ) {
 			$html .= '<div class="vk_post_dates">';
+			if ( $options['display_date'] ) {
+				$html .= '<div class="vk_post_date ' . $layout_type . '-date published">';
+				$html .= esc_html( get_the_date( '', $post->ID ) );
+				$html .= '</div>';
+			}
 			if ( $options['display_modified'] ) {
 				$html .= '<div class="vk_post_date ' . $layout_type . '-date modified">';
 				$html .= esc_html( get_the_modified_date( '', $post->ID ) );
 				$html .= '</div>';
 			}
-
-			if ( $options['display_excerpt'] ) {
-				$html .= '<p class="vk_post_excerpt ' . $layout_type . '-text">';
-				$html .= wp_kses_post( nl2br( get_the_excerpt( $post->ID ) ) );
-				$html .= '</p>';
-			}
 			$html .= '</div>';			
+		}
+
+		if ( $options['display_excerpt'] ) {
+			$html .= '<p class="vk_post_excerpt ' . $layout_type . '-text">';
+			$html .= wp_kses_post( nl2br( get_the_excerpt( $post->ID ) ) );
+			$html .= '</p>';
 		}
 
 		if ( $options['display_author'] ) {
