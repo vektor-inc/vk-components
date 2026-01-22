@@ -969,7 +969,7 @@ class VK_Component_Posts {
 			$html .= '</span>';
 		} elseif ( $options['display_date'] ) {
 			$html .= '<span class="postListText_date published">';
-			$html .= '<i class="fa-solid fa-calendar-days"></i>';
+			$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
 			$html .= esc_html( get_the_date( '', $post->ID ) );
 			$html .= '</span>';
 		}
