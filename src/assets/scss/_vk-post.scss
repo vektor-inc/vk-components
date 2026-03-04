@@ -195,7 +195,8 @@
 	& &_dates {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: start;
+		flex-wrap: wrap; 
 		align-items: center;
 		column-gap: 0.6em;
 	}

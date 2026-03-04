@@ -89,7 +89,7 @@ class VK_Component_Posts {
 			'display_excerpt'            => false,
 			'display_author'             => false,
 			'display_date'               => true,
-			'display_modified'           => true,
+			'display_modified'           => false,
 			'display_new'                => true,
 			'display_taxonomies'         => false,
 			'display_btn'                => false,
