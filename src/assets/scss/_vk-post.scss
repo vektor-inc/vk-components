@@ -195,13 +195,10 @@
 	& &_dates {
 		display: flex;
 		flex-direction: row;
-		justify-content: start;
+		justify-content: flex-start;
 		flex-wrap: wrap; 
 		align-items: center;
 		column-gap: 0.6em;
-	}
-	& &_dates:has(> :only-child) {
-		justify-content: flex-start;
 	}
 	& &_date {
 		font-size: var(--vk-font-size-xs);

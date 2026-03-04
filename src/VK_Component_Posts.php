@@ -721,7 +721,7 @@ class VK_Component_Posts {
 				$html .= esc_html( get_the_modified_date( '', $post->ID ) );
 				$html .= '</div>';
 			}
-			$html .= '</div>';			
+			$html .= '</div>';
 		}
 
 		if ( $options['display_excerpt'] ) {
@@ -962,7 +962,7 @@ class VK_Component_Posts {
 		$html  = '';
 		$html .= self::get_view_first_div( $post, $options );
 
-		if ( $options['display_modified'] && get_the_modified_date( '', $post->ID ) !== get_the_date( '', $post->ID ) ) {
+		if ( $options['display_modified'] && get_post_modified_time( 'U', false, $post->ID ) !== get_post_time( 'U', false, $post->ID ) ) {
 			$html .= '<span class="postListText_date modified">';
 			$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
 			$html .= esc_html( get_the_modified_date( '', $post->ID ) );
