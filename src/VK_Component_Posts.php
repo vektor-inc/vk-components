@@ -3,7 +3,7 @@
  * VK Components Posts
  *
  * @package VektorInc\VK_Component
- * @version 1.6.5
+ * @version 1.7.0
  */
 namespace VektorInc\VK_Component;
 
@@ -14,7 +14,7 @@ use VektorInc\VK_Term_Color\VkTermColor;
  */
 class VK_Component_Posts {
 
-	const VK_COMPONENTS_VERSION = '1.6.5';
+	const VK_COMPONENTS_VERSION = '1.7.0';
 
 	public static function init() {
 

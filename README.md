@@ -1,5 +1,6 @@
 ## VK Component
 
+1.7.0
 [ 機能追加 ] 更新日を追加
 [ その他 ] PHPUnit xxl の値が null の時に返すクラスのテスト追加
 [ その他 ] PHPUnit テスト追加
