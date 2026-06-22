@@ -1,6 +1,6 @@
 {
     "engines": {
-        "node": ">=22"
+        "node": ">=24"
     },
     "devDependencies": {
         "@wordpress/env": "^11.8.1",
