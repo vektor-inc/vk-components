@@ -14,6 +14,7 @@
         "postcss-combine-media-query": "^2.1.0",
         "sass": "^1.101.0"
     },
+    "//overrides": "@wordpress/env が内包する js-yaml 3.x は DoS 脆弱性 (GHSA-h67p-54hq-rp68) を持つため ^4.2.0 に固定。wp-env は yaml.dump() のみ使用で v3/v4 互換のため安全。",
     "overrides": {
         "@wordpress/env": {
             "js-yaml": "^4.2.0"
