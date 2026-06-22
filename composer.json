@@ -14,13 +14,19 @@
         }
     ],
     "require-dev": {
-        "wp-phpunit/wp-phpunit": "^6.7",
-        "yoast/phpunit-polyfills": "^3.0"
+        "wp-phpunit/wp-phpunit": "^7.0",
+        "yoast/phpunit-polyfills": "^4.0"
     },
     "require": {
+        "php": ">=7.4",
         "vektor-inc/vk-term-color": "^0.7.1"
     },
     "conflict": {
         "phpunit/phpunit": ">=10"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
     }
 }
