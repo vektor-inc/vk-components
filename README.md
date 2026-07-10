@@ -1,5 +1,6 @@
 ## VK Component
 
+[ デザイン不具合修正 ] テキスト1カラムで更新日を表示した際、日付形式によっては幅が不足し後続要素とレイアウトがずれる不具合を修正
 [ 開発環境 ] npm・composer の依存パッケージを最新化し脆弱性を解消
 [ 開発環境 ] 非推奨の gulp-merge-media-queries を postcss-combine-media-query に置き換え
 [ 開発環境 ] 動作要件を PHP 7.4 以上・Node.js 24 以上（LTS）として明記
