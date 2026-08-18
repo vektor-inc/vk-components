@@ -43,7 +43,7 @@
 		margin: 0;
 		padding-top: 0.2rem;
 		clear: both;
-		@media (min-width: variables.$lg-min) {
+		@media (variables.$md-max < width) {
 			padding-top: 0;
 			clear: none;
 		}
@@ -61,7 +61,7 @@
 }
 
 .mainSection .postListText.vk_post-col-sm-12 {
-	@media (min-width: variables.$sm-min) {
+	@media (variables.$xs-max < width) {
 		.vk_post_title {
 			font-size: 16px;
 			font-weight: normal;
@@ -81,7 +81,7 @@
 	}
 	// }
 	// .mainSection .postListText.vk_post-col-md-12 {
-	// 	@media (min-width: variables.$md-min) {
+	// 	@media (variables.$sm-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -91,7 +91,7 @@
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-lg-12 {
-	// 	@media (min-width: variables.$lg-min) {
+	// 	@media (variables.$md-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 18px;
 	// 		}
@@ -107,7 +107,7 @@
 	// 	}
 	// }
 	// .mainSection .postListText.vk_post-col-xl-12 {
-	// 	@media (min-width: variables.$xl-min) {
+	// 	@media (variables.$lg-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}
@@ -116,7 +116,7 @@
 	// 		}
     // 	}
     	// .mainSection .postListText.vk_post-col-xxl-12 {
-	// 	@media (min-width: variables.$xxl-min) {
+	// 	@media (variables.$xl-max < width) {
 	// 		.vk_post_title {
 	// 			font-size: 21px;
 	// 		}

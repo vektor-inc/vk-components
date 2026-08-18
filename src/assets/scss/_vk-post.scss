@@ -7,12 +7,15 @@ $vk-post-col-widths: (
   6: 50%,
   12: 100%
 );
+/* 各カラム接頭辞に対して「この幅を超えたら適用」となる下限側のしきい値
+   下限側の比較なので、1 段階下のブレイクポイントの最大値を持たせている
+   ========================================================================== */
 $vk-post-col-breakpoints: (
-  sm: variables.$sm-min,
-  md: variables.$md-min,
-  lg: variables.$lg-min,
-  xl: variables.$xl-min,
-  xxl: variables.$xxl-min
+  sm: variables.$xs-max,
+  md: variables.$sm-max,
+  lg: variables.$md-max,
+  xl: variables.$lg-max,
+  xxl: variables.$xl-max
 );
 
 @mixin vk-post-col-width-rules($prefix: null, $offset: 30px) {
@@ -51,8 +54,8 @@ $vk-post-col-breakpoints: (
 
   @include vk-post-col-width-rules(xs);
 
-  @each $name, $min-width in $vk-post-col-breakpoints {
-    @media (min-width: $min-width) {
+  @each $name, $breakpoint in $vk-post-col-breakpoints {
+    @media ($breakpoint < width) {
       @include vk-post-col-width-rules($name);
     }
   }
