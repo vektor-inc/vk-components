@@ -46,12 +46,12 @@
 }
 
 .media.vk_post-col {
-	@media  (max-width: variables.$xs-max) {
+	@media (width <= variables.$xs-max) {
 		&-xs-6:nth-child(2) {
 			border-top: variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$sm-min) and (max-width: variables.$sm-max) {
+	@media (variables.$xs-max < width <= variables.$sm-max) {
 		&-sm-6:nth-child(2),
 		&-sm-4:nth-child(2),
 		&-sm-4:nth-child(3),
@@ -61,7 +61,7 @@
 			border-top: variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$md-min) and (max-width: variables.$md-max) {
+	@media (variables.$sm-max < width <= variables.$md-max) {
 		&-md-6:nth-child(2),
 		&-md-4:nth-child(2),
 		&-md-4:nth-child(3),
@@ -71,7 +71,7 @@
 			border-top: variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$lg-min) and (max-width: variables.$lg-max) {
+	@media (variables.$md-max < width <= variables.$lg-max) {
 		&-lg-6:nth-child(2),
 		&-lg-4:nth-child(2),
 		&-lg-4:nth-child(3),
@@ -81,7 +81,7 @@
 			border-top: variables.$border_primary;
 		}
 	}
-	@media (min-width: variables.$xl-min) {
+	@media (variables.$lg-max < width) {
 		&-xl-6:nth-child(2),
 		&-xl-4:nth-child(2),
 		&-xl-4:nth-child(3),
@@ -91,7 +91,7 @@
 			border-top: variables.$border_primary;
 		}
     }
-    @media (min-width: variables.$xxl-min) {
+    @media (variables.$xl-max < width) {
 		&-xxl-6:nth-child(2),
 		&-xxl-4:nth-child(2),
 		&-xxl-4:nth-child(3),
