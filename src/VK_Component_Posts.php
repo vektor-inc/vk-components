@@ -298,11 +298,11 @@ class VK_Component_Posts {
 	}
 
 	/**
-	 * アーカイブへのリンクボタンを返す。
+	 * アーカイブへのリンクボタンを返す（試験的）。
 	 *
 	 * @param object $wp_query 投稿クエリ。
 	 * @param array $args ボタンの設定。
-	 * @return string 投稿の HTML。
+	 * @return string アーカイブへのリンクボタンの HTML。
 	 */
 	public static function get_archive_link_btn( $wp_query, $args = array() ) {
 
@@ -330,11 +330,11 @@ class VK_Component_Posts {
 	}
 
 	/**
-	 * ページ送りの HTML を返す。
+	 * ページ送りの HTML を返す（試験的）。
 	 *
 	 * @param object $wp_query 投稿クエリ。
 	 * @param array $args ページ送りの設定。
-	 * @return string 投稿の HTML。
+	 * @return string ページ送りの HTML。
 	 */
 	public static function get_pagenation( $wp_query, $args = array() ) {
 		$args = wp_parse_args(
@@ -542,7 +542,7 @@ class VK_Component_Posts {
 	 *
 	 * @param object $post 投稿オブジェクト。
 	 * @param array $options 表示設定。
-	 * @return string 投稿の HTML。
+	 * @return string 投稿の開始タグの HTML。
 	 */
 	public static function get_view_first_div( $post, $options ) {
 
@@ -581,8 +581,8 @@ class VK_Component_Posts {
 	 *
 	 * @param object $post 投稿オブジェクト。
 	 * @param array $options 表示設定。
-	 * @param array $attr 画像の追加クラス。
-	 * @return string 投稿の HTML。
+	 * @param array $attr 外側と画像の追加クラス。
+	 * @return string 投稿画像の HTML。
 	 */
 	public static function get_thumbnail_image( $post, $options, $attr = array() ) {
 		$default = array(
@@ -654,7 +654,7 @@ class VK_Component_Posts {
 	 *
 	 * @param object $post 投稿オブジェクト。
 	 * @param array $options 表示設定。
-	 * @return string 投稿の HTML。
+	 * @return string 投稿本文の HTML。
 	 */
 	public static function get_view_body( $post, $options ) {
 		$layout_type = $options['layout'];
@@ -674,7 +674,7 @@ class VK_Component_Posts {
 		}
 
 		// タグ名は属性と異なり、許可した要素名だけを出力する。
-		$title_tag = strtolower( $options['title_tag'] );
+		$title_tag = is_string( $options['title_tag'] ) ? strtolower( $options['title_tag'] ) : 'h5';
 		if ( ! in_array( $title_tag, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span' ), true ) ) {
 			$title_tag = 'h5';
 		}
@@ -960,7 +960,7 @@ class VK_Component_Posts {
 	 *
 	 * @param object $post 投稿オブジェクト。
 	 * @param array $options 表示設定。
-	 * @return string 投稿の HTML。
+	 * @return string テキスト形式の投稿の HTML。
 	 */
 	public static function get_view_type_text( $post, $options ) {
 		$layout_type = $options['layout'];

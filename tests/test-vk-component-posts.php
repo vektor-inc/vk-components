@@ -103,8 +103,8 @@ class VkComponentPostsTest extends WP_UnitTestCase {
 			$this->assertStringNotContainsString( '<script>', $html );
 		}
 		// 許可タグの大文字入力と許可外タグのフォールバックを確認する。
-		foreach ( array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span', 'H2', 'script', 'h2 onclick="bad"', 'h2><img src=x>', '' ) as $tag ) {
-			$expected = in_array( $tag, array( 'script', 'h2 onclick="bad"', 'h2><img src=x>', '' ), true ) ? 'h5' : strtolower( $tag );
+		foreach ( array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span', 'H2', 'script', 'h2 onclick="bad"', 'h2><img src=x>', '', null, false, 123, array(), new stdClass() ) as $tag ) {
+			$expected = ! is_string( $tag ) || in_array( $tag, array( 'script', 'h2 onclick="bad"', 'h2><img src=x>', '' ), true ) ? 'h5' : strtolower( $tag );
 			$options['title_tag'] = $tag;
 			$html = VK_Component_Posts::get_view_body( $post, $options );
 			$this->assertStringContainsString( '<' . $expected . ' class="vk_post_title ', $html );
@@ -148,6 +148,35 @@ class VkComponentPostsTest extends WP_UnitTestCase {
 			$this->assertStringContainsString( 'vk_posts-layout-' . html_entity_decode( $value, ENT_QUOTES ), $outer->getAttribute( 'class' ) );
 			$this->assertSame( 4, substr_count( $outer->getAttribute( 'class' ), html_entity_decode( $value, ENT_QUOTES ) ) );
 			wp_reset_postdata();
+		}
+	}
+
+	/**
+	 * フィルターで追加したクラスを開始タグの属性内に閉じ込める。
+	 *
+	 * @return void
+	 */
+	public function test_get_view_first_div() {
+		$post = self::factory()->post->create_and_get();
+		$options = VK_Component_Posts::get_loop_post_view_options( array(), $post );
+		// 通常のクラスと引用符を含むクラスを同じ経路で確認する。
+		foreach ( array( 'custom', 'custom spacing', 'x" data-injected="yes<>&' ) as $value ) {
+			$filter = static function ( $classes ) use ( $value ) {
+				$classes[] = $value;
+				return $classes;
+			};
+			$previous_post = $GLOBALS['post'] ?? null;
+			$GLOBALS['post'] = $post;
+			add_filter( 'post_class', $filter );
+			try {
+				$html = VK_Component_Posts::get_view_first_div( $post, $options );
+				$this->assertStringContainsString( ' ' . esc_attr( $value ) . '"', $html );
+				$this->assertStringNotContainsString( ' data-injected="', $html );
+			} finally {
+				// アサーションが失敗しても他のテストへフィルターを残さない。
+				remove_filter( 'post_class', $filter );
+				$GLOBALS['post'] = $previous_post;
+			}
 		}
 	}
 
