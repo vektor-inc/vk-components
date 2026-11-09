@@ -298,11 +298,11 @@ class VK_Component_Posts {
 	}
 
 	/**
-	 * Archive Link (Experimental)
+	 * アーカイブへのリンクボタンを返す。
 	 *
-	 * @param object $wp_query : post query.
-	 * @param array  $args : setting parametors.
-	 * @return string $html
+	 * @param object $wp_query 投稿クエリ。
+	 * @param array $args ボタンの設定。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_archive_link_btn( $wp_query, $args = array() ) {
 
@@ -325,16 +325,16 @@ class VK_Component_Posts {
 		$link      = get_post_type_archive_link( $post_type );
 
 		$html = '';
-		$html = '<div class="text-' . $args['btn_position'] . '"><a class="' . $btn_class . '" href="' . $link . '">' . $args['btn_icon_before'] . '<span class="vk_button_link_txt">' . $args['btn_text'] . '</span>' . $args['btn_icon_after'] . '</a></div>';
+		$html = '<div class="text-' . esc_attr( $args['btn_position'] ) . '"><a class="' . $btn_class . '" href="' . esc_url( $link ) . '">' . $args['btn_icon_before'] . '<span class="vk_button_link_txt">' . wp_kses_post( $args['btn_text'] ) . '</span>' . $args['btn_icon_after'] . '</a></div>';
 		return $html;
 	}
 
 	/**
-	 * Pagenation (Experimental)
+	 * ページ送りの HTML を返す。
 	 *
-	 * @param object $wp_query : post query.
-	 * @param array  $args : setting parametors.
-	 * @return string $html
+	 * @param object $wp_query 投稿クエリ。
+	 * @param array $args ページ送りの設定。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_pagenation( $wp_query, $args = array() ) {
 		$args = wp_parse_args(
@@ -373,8 +373,8 @@ class VK_Component_Posts {
 		}
 
 		if ( 1 !== $max_num_pages ) {
-			$html .= '<nav class="navigation ' . $args['class'] . '" role="navigation" aria-label="' . $args['aria_label'] . '">';
-			$html .= '<h4 class="screen-reader-text">' . $args['screen_reader_text'] . '</h4>';
+			$html .= '<nav class="navigation ' . esc_attr( $args['class'] ) . '" role="navigation" aria-label="' . esc_attr( $args['aria_label'] ) . '">';
+			$html .= '<h4 class="screen-reader-text">' . esc_html( $args['screen_reader_text'] ) . '</h4>';
 			$html .= '<div class="nav-links"><ul class="page-numbers">';
 
 			// [ << ]
@@ -538,12 +538,11 @@ class VK_Component_Posts {
 	 */
 
 	/**
-	 * Common Part _ first DIV
+	 * 投稿の開始タグを返す。
 	 *
-	 * @param object $post post oject.
-	 * @param array  $options display options.
-	 *
-	 * @return string
+	 * @param object $post 投稿オブジェクト。
+	 * @param array $options 表示設定。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_view_first_div( $post, $options ) {
 
@@ -564,7 +563,7 @@ class VK_Component_Posts {
 
 		// Add Outer class.
 		if ( ! empty( $options['class_outer'] ) ) {
-			$class_outer .= ' ' . esc_attr( $options['class_outer'] );
+			$class_outer .= ' ' . $options['class_outer'];
 		}
 
 		// Add btn class.
@@ -572,19 +571,18 @@ class VK_Component_Posts {
 			$class_outer .= ' vk_post-btn-display';
 		}
 
-		$html = '<div id="post-' . esc_attr( $post->ID ) . '" class="vk_post vk_post-postType-' . esc_attr( $post->post_type ) . ' ' . join( ' ', get_post_class( $class_outer ) ) . '">';
+		$html = '<div id="post-' . esc_attr( $post->ID ) . '" class="vk_post vk_post-postType-' . esc_attr( $post->post_type ) . ' ' . esc_attr( join( ' ', get_post_class( $class_outer ) ) ) . '">';
 		return $html;
 	}
 
 
 	/**
-	 * Common Part _ post thumbnail
+	 * 投稿画像の HTML を返す。
 	 *
-	 * @param object $post global post object.
-	 * @param array  $options component options.
-	 * @param array  $attr   get_the_post_thumbnail() image attr.
-	 *
-	 * @return string
+	 * @param object $post 投稿オブジェクト。
+	 * @param array $options 表示設定。
+	 * @param array $attr 画像の追加クラス。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_thumbnail_image( $post, $options, $attr = array() ) {
 		$default = array(
@@ -605,7 +603,7 @@ class VK_Component_Posts {
 			}
 			$style = ' style="background-image:url(' . $image_src . ')"';
 
-			$html .= '<div class="vk_post_imgOuter' . $classes['class_outer'] . '"' . $style . '>';
+			$html .= '<div class="vk_post_imgOuter' . esc_attr( $classes['class_outer'] ) . '"' . $style . '>';
 
 			if ( 'card-intext' !== $options['layout'] ) {
 				$html .= '<a href="' . get_the_permalink( $post->ID ) . '">';
@@ -638,7 +636,7 @@ class VK_Component_Posts {
 			if ( $img ) {
 				$html .= $img;
 			} elseif ( $options['image_default_url'] ) {
-				$html .= '<img src="' . esc_url( $options['image_default_url'] ) . '" alt="" class="' . $image_class . '" loading="lazy" />';
+				$html .= '<img src="' . esc_url( $options['image_default_url'] ) . '" alt="" class="' . esc_attr( $image_class ) . '" loading="lazy" />';
 			}
 
 			if ( 'card-intext' !== $options['layout'] ) {
@@ -652,10 +650,11 @@ class VK_Component_Posts {
 	}
 
 	/**
-	 * Common Part _ post body
+	 * 投稿本文の HTML を返す。
 	 *
-	 * @param object $post global post object.
-	 * @param array  $options component options.
+	 * @param object $post 投稿オブジェクト。
+	 * @param array $options 表示設定。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_view_body( $post, $options ) {
 		$layout_type = $options['layout'];
@@ -668,13 +667,19 @@ class VK_Component_Posts {
 
 		$html = '';
 
-		$html .= '<div class="vk_post_body ' . $layout_type . '-body">';
+		$html .= '<div class="vk_post_body ' . esc_attr( $layout_type ) . '-body">';
 
 		if ( ! empty( $options['body_prepend'] ) ) {
 			$html .= $options['body_prepend'];
 		}
 
-		$html .= '<' . $options['title_tag'] . ' class="vk_post_title ' . $layout_type . '-title">';
+		// タグ名は属性と異なり、許可した要素名だけを出力する。
+		$title_tag = strtolower( $options['title_tag'] );
+		if ( ! in_array( $title_tag, array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'div', 'span' ), true ) ) {
+			$title_tag = 'h5';
+		}
+
+		$html .= '<' . $title_tag . ' class="vk_post_title ' . esc_attr( $layout_type ) . '-title">';
 
 		/*
 		カードインテキストの場合、リンクの中にリンクがあるとブラウザでDOMが書き換えられるので
@@ -695,7 +700,7 @@ class VK_Component_Posts {
 			$entry = get_the_time( 'U', $post );
 			$kiji  = gmdate( 'U', ( $today - $entry ) ) / 86400;
 			if ( $options['new_date'] > $kiji ) {
-				$html .= '<span class="vk_post_title_new">' . $options['new_text'] . '</span>';
+				$html .= '<span class="vk_post_title_new">' . esc_html( $options['new_text'] ) . '</span>';
 			}
 		}
 
@@ -703,20 +708,20 @@ class VK_Component_Posts {
 			$html .= '</a>';
 		}
 
-		$html .= '</' . $options['title_tag'] . '>';
+		$html .= '</' . $title_tag . '>';
 
 
 	
 		if ( $options['display_date'] || $options['display_modified'] ) {
 			$html .= '<div class="vk_post_dates">';
 			if ( $options['display_date'] ) {
-				$html .= '<div class="vk_post_date ' . $layout_type . '-date published">';
+				$html .= '<div class="vk_post_date ' . esc_attr( $layout_type ) . '-date published">';
 				$html .= '<i class="fa-solid fa-calendar-days"></i>';
 				$html .= esc_html( get_the_date( '', $post->ID ) );
 				$html .= '</div>';
 			}
 			if ( $options['display_modified'] ) {
-				$html .= '<div class="vk_post_date ' . $layout_type . '-date modified">';
+				$html .= '<div class="vk_post_date ' . esc_attr( $layout_type ) . '-date modified">';
 				$html .= '<i class="fa-solid fa-clock-rotate-left"></i>';
 				$html .= esc_html( get_the_modified_date( '', $post->ID ) );
 				$html .= '</div>';
@@ -725,7 +730,7 @@ class VK_Component_Posts {
 		}
 
 		if ( $options['display_excerpt'] ) {
-			$html .= '<p class="vk_post_excerpt ' . $layout_type . '-text">';
+			$html .= '<p class="vk_post_excerpt ' . esc_attr( $layout_type ) . '-text">';
 			$html .= wp_kses_post( nl2br( get_the_excerpt( $post->ID ) ) );
 			$html .= '</p>';
 		}
@@ -800,7 +805,7 @@ class VK_Component_Posts {
 					'shadow_color'   => '',
 				);
 
-				$html .= '<div class="vk_post_btnOuter ' . $options['btn_align'] . '">';
+				$html .= '<div class="vk_post_btnOuter ' . esc_attr( $options['btn_align'] ) . '">';
 				$html .= VK_Component_Button::get_view( $button_options );
 				$html .= '</div>';
 			}
@@ -810,7 +815,7 @@ class VK_Component_Posts {
 			$html .= $options['body_append'];
 		}
 
-		$html .= '</div><!-- [ /.' . $layout_type . '-body ] -->';
+		$html .= '</div><!-- [ /.' . esc_html( $layout_type ) . '-body ] -->';
 
 		return $html;
 	}
@@ -951,10 +956,11 @@ class VK_Component_Posts {
 	}
 
 	/**
-	 * Text
+	 * テキスト形式の投稿 HTML を返す。
 	 *
-	 * @param object $post global post object.
-	 * @param array  $options component options.
+	 * @param object $post 投稿オブジェクト。
+	 * @param array $options 表示設定。
+	 * @return string 投稿の HTML。
 	 */
 	public static function get_view_type_text( $post, $options ) {
 		$layout_type = $options['layout'];
@@ -995,7 +1001,7 @@ class VK_Component_Posts {
 			$entry = get_the_time( 'U' );
 			$kiji  = gmdate( 'U', ( $today - $entry ) ) / 86400;
 			if ( $options['new_date'] > $kiji ) {
-				$html .= '<span class="vk_post_title_new">' . $options['new_text'] . '</span>';
+				$html .= '<span class="vk_post_title_new">' . esc_html( $options['new_text'] ) . '</span>';
 			}
 		}
 
